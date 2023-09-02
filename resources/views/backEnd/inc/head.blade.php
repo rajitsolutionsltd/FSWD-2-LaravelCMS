@@ -32,3 +32,9 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <style>
+    .invalid-feedback {
+      display: inline;
+    }
+  </style>

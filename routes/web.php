@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\AcademicSessionController;
+use App\Models\AcademicSession;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,5 @@ require __DIR__.'/auth.php';
 Route::get('/admin/dashboard', function(){
     return view('backEnd.pages.dashboard');
 })->middleware('auth');
+
+Route::resource('admin/academic-session', AcademicSessionController::class);

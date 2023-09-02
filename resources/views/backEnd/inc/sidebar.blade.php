@@ -15,13 +15,13 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="{{route('academic-session.create')}}">
               <i class="bi bi-circle"></i><span>Add New Session</span>
             </a>
           </li>
 
           <li>
-            <a href="components-alerts.html">
+            <a href="{{route('academic-session.index')}}">
               <i class="bi bi-circle"></i><span>Session List</span>
             </a>
           </li>
