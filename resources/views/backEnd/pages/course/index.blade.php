@@ -1,6 +1,6 @@
 @extends('backEnd.layouts.masters')
 
-@section('section-title', 'Academic Session Lists')
+@section('section-title', 'Course Lists')
 
 @section('content')
 
@@ -8,9 +8,9 @@
 <div class="row">
     <div class="card">
         <div class="card-header d-flex justify-content-between">
-            <h3>Academic Sessions</h3>
+            <h3>Courses</h3>
 
-            <a href="{{route('academic-session.create')}}" class="btn btn-primary">Add New Session</a>
+            <a href="{{route('course.create')}}" class="btn btn-primary">Add New Course</a>
         </div>
 
         <div class="card-body">
@@ -20,21 +20,23 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+                        <th>Course Code</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($academicSessions as $session)
+                    @foreach ($courses as $course)
                         <tr>
-                            <td>{{$session->id}}</td>
-                            <td>{{$session->name}}</td>
+                            <td>{{$course->id}}</td>
+                            <td>{{$course->name}}</td>
+                            <td>{{$course->course_code}}</td>
                             <td>
-                                <a href="{{route('academic-session.edit', $session->id)}}" class="btn btn-info">Edit</a>
+                                <a href="{{route('course.edit', $course->id)}}" class="btn btn-info">Edit</a>
                                 
-                                <a href="#" onclick="deleteItem('#academic-session-form-{{$session->id}}')" class="btn btn-danger">Delete</a>
+                                <a href="#" onclick="deleteItem('#course-form-{{$course->id}}')" class="btn btn-danger">Delete</a>
 
-                                {!! Form::open(['route'=> ['academic-session.destroy', $session->id], 'method'=> 'post', 'id'=> 'academic-session-form-'.$session->id]) !!}
+                                {!! Form::open(['route'=> ['course.destroy', $course->id], 'method'=> 'post', 'id'=> 'course-form-'.$course->id]) !!}
                                     @method('delete')
                                 {!! Form::close() !!}
                             </td>

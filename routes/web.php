@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\AcademicSession;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\AcademicYearController;
 use App\Http\Controllers\Admin\AcademicSessionController;
-use App\Models\AcademicSession;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +39,8 @@ Route::get('/admin/dashboard', function(){
     return view('backEnd.pages.dashboard');
 })->middleware('auth');
 
-Route::resource('admin/academic-session', AcademicSessionController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('admin/academic-session', AcademicSessionController::class);
+    Route::resource('admin/course', CourseController::class);
+    Route::resource('admin/academic-year', AcademicYearController::class);
+});
